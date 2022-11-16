@@ -7,12 +7,12 @@ import { Button } from "../components/Button";
 export function Home({ navigation }) {
   const [weight, setWeight] = useState("");
   const [height, setHeight] = useState("");
-
+  
   const clear = () => {
     setWeight("");
     setHeight("");
   };
-
+ 
   const calculate = () => {
     const w = parseFloat(weight);
     const h = parseFloat(height) / 100;
@@ -24,8 +24,30 @@ export function Home({ navigation }) {
     }
     const result = w / (h * h);
 
-    navigation.navigate("Result", { imc: result });
+    const message = defineMessage(result)
+    
+    navigation.navigate("Result", {imc: result, message: message});
   };
+
+  const defineMessage = (result) => {
+    let message = '';
+
+    if (result >= 40.0) {
+      message = "Obesidade grau III"
+    } else if (result <= 39.9 && result >= 35.00 ) {
+      message = "Obesidade grau II"
+    } else if (result <= 34.9 && result >= 30.00 ) {
+      message = "Obesidade grau I"
+    } else if (result <= 29.9 && result >= 25.00 ) {
+      message = "Sobrepeso"
+    } else if (result <= 24.9 && result >= 18.6 ) {
+      message = "Normal"
+    } else {
+      message = "Abaixo do normal"
+    } 
+
+    return message
+  }
 
   return (
     <View style={styles.container}>
@@ -37,6 +59,7 @@ export function Home({ navigation }) {
           <TextInput
             style={styles.input}
             keyboardType="numeric"
+            placeholder="00.0"
             value={weight}
             onChangeText={(text) => setWeight(text)}
             returnKeyType="next"
@@ -49,6 +72,7 @@ export function Home({ navigation }) {
           <TextInput
             style={styles.input}
             keyboardType="numeric"
+            placeholder="000"
             value={height}
             onChangeText={(text) => setHeight(text)}
             returnKeyType="next"
@@ -57,7 +81,7 @@ export function Home({ navigation }) {
 
         <Button title="Calcular" onPress={calculate} />
 
-        <Button title="Limpar" onPress={() => undefined} secondary />
+        <Button title="Limpar" onPress={() => clear()} secondary />
       </Card>
     </View>
   );

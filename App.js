@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet } from "react-native";
 import { colors } from "./src/constants";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
@@ -15,12 +15,24 @@ export default function App() {
         <Stack.Screen
           name="Nome"
           component={Home}
-          options={{ title: "Inicio" }}
+          options={{
+            title: "Início", 
+            headerStyle: {
+              backgroundColor: colors.purpleLight
+            },
+            headerTintColor: colors.white
+          }}
         />
         <Stack.Screen
           name="Result"
           component={Result}
-          options={{ title: "Resultado" }}
+          options={{
+            title: "Resultado", 
+            headerStyle: {
+              backgroundColor: colors.purpleLight
+            },
+            headerTintColor: colors.white
+          }}
         />
       </Stack.Navigator>
     </NavigationContainer>

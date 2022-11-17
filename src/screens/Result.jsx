@@ -7,22 +7,19 @@ export function Result({ navigation, route }) {
   const { imc } = route.params;
   const { message } = route.params;
 
-  console.log(route)
-
-
   return (
     <View style={styles.container}>
+      <Text style={styles.title}>Resultados</Text>
       <Card>
         <View style={styles.imcWrapper}>
-          <Text style={styles.imcText}>IMC</Text>
+          <Text style={styles.imcText}>Seu IMC é:</Text>
           <Text style={styles.imcText}>{imc.toFixed(2)}</Text>
         </View>
       </Card>
       <Card>
         <View style={styles.imcMessage}>
-          <Text style={styles.imcText}>{imc.toFixed(2)}</Text>
-          <Text>
-            {message}
+          <Text style={styles.imcText2}>
+            Seu IMC se encaixa na faixa: {message}
           </Text>
         </View>
       </Card>
@@ -46,8 +43,17 @@ const styles = StyleSheet.create({
     fontSize: 24,
     color: colors.white,
   },
+  imcText2: {
+    fontSize: 20,
+    color: colors.orange,
+  },
   imcMessage: {
     justifyContent: "center",
     alignItems: "center",
+  },
+  title: {
+    fontSize: 24,
+    fontWeight: "bold",
+    color: colors.white,
   },
 });

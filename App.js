@@ -18,20 +18,22 @@ export default function App() {
           options={{
             title: "Início", 
             headerStyle: {
-              backgroundColor: colors.purpleLight
+              backgroundColor: colors.inputs
             },
-            headerTintColor: colors.white
+            headerTintColor: colors.white,
+            statusBarTranslucent: true
           }}
         />
         <Stack.Screen
           name="Result"
           component={Result}
           options={{
-            title: "Resultado", 
+            title: "Voltar", 
             headerStyle: {
-              backgroundColor: colors.purpleLight
+              backgroundColor: colors.inputs
             },
-            headerTintColor: colors.white
+            headerTintColor: colors.white,
+            statusBarTranslucent: true
           }}
         />
       </Stack.Navigator>

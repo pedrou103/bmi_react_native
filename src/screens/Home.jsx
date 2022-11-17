@@ -34,13 +34,13 @@ export function Home({ navigation }) {
 
     if (result >= 40.0) {
       message = "Obesidade grau III"
-    } else if (result <= 39.9 && result >= 35.00 ) {
+    } else if (result >= 35.00 ) {
       message = "Obesidade grau II"
-    } else if (result <= 34.9 && result >= 30.00 ) {
+    } else if (result >= 30.00 ) {
       message = "Obesidade grau I"
-    } else if (result <= 29.9 && result >= 25.00 ) {
+    } else if (result >= 25.00 ) {
       message = "Sobrepeso"
-    } else if (result <= 24.9 && result >= 18.6 ) {
+    } else if (result >= 18.6 ) {
       message = "Normal"
     } else {
       message = "Abaixo do normal"
